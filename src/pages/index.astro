@@ -1,4 +1,9 @@
 ---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 const pageTitle = "Home page"
 ---
 
@@ -11,11 +16,14 @@ const pageTitle = "Home page"
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<a href="/">Home</a>
-        <a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
+		<Header/>
 
 		<h1>O site do Igor</h1>
 		<p> Este site foi criado para praticar o framework Astro.
+
+	<Footer/>
+	  	<script>
+			import "../scripts/menu.js";
+  		</script>
 	</body>
 </html>
