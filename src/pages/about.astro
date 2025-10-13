@@ -1,8 +1,5 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "About Me -- teste de variável";
 
 const identity = {
@@ -23,8 +20,7 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-	<head>
+<BaseLayout> <!-- As informações de style, que antes estavam em head, agora tem que ir pra dentro do layout para sobrescrever as orientações do BaseLayout. -->
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
@@ -42,10 +38,6 @@ const textCase = "uppercase";
 					text-transform: var(--textCase);
 				}
     		</style>
-
-	</head>
-	<body>
-        <Header/>
 
 		<h1>{pageTitle}</h1>
         <h2>... and my new website!</h2>
@@ -71,9 +63,4 @@ const textCase = "uppercase";
 
 		{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 
-	<Footer/>
-	  	<script>
-    		import "../scripts/menu.js";
-  		</script>
-	</body>
-</html>
+	</BaseLayout>
