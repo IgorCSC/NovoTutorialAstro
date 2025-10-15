@@ -1,12 +1,38 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+
+
 ---
 <BaseLayout pageTitle={frontmatter.title}> <!-- Aqui importamos o layout base para a postagem. -->
 
     <h1>{frontmatter.title}</h1>
     <p> Published on: {frontmatter.pubDate.toString().slice(0,10)}</p>
     <p>Written by {frontmatter.author}</p>
+    <div class="tags">
+    {</div>frontmatter.tags.map((tag: any) => <p class="tag"><a href={'/tags/${tag}'}>{tag}</a></p>)}
+</div>
+
     <hr class="funky-divider">
     <slot />
 </BaseLayout>
+
+    <style>
+  a {
+    color: #E0CDA9;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: .9em;
+    background-color: #A6674C;
+  }
+    </style>
