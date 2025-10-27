@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting";
 const pageTitle = "Home page";
 ---
 <BaseLayout pageTitle={pageTitle}>
@@ -9,4 +10,8 @@ const pageTitle = "Home page";
 	<li>
 		<ul> Teste</ul>
 	</li>
+
+	<Greeting messages={["Oi", "Opa!", "Ôba! Baum?"]} /> 
+	<Greeting client:load messages={["Fala, Nigel!", "Ôba, baum?", "Hallo!", "Hola!"]} /> <!-- Só  segundo funciona porque ele orienta o Astro a rodar o script novamente ao carregar a página, tornando o componente interativo. Este é um componente 'hidratado', ao passo que o de cima é 'não hidratado.' -->
+
 </BaseLayout>
